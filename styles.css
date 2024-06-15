@@ -1,38 +1,60 @@
-html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
+body {
     font-family: 'Montserrat', sans-serif;
     background-color: #EEEEEE;
     color: #333;
+    margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+    min-height: 100vh;
+    position: relative;
+}
+
+img {
+    width: 100%;
+    filter: drop-shadow(10px 10px 40px #9E9E9E);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeInAnimation 2s forwards;
+}
+
+@keyframes fadeInAnimation {
+    to {
+        opacity: 1;
+    }
 }
 
 .container {
+    max-width: 800px;
+    width: 90%;
+    background: #EEEEEE;
+    padding: 20px;
+    padding-top: 15vh; /* Добавлен отступ сверху для создания пространства между изображением и текстом */
+    border-radius: 8px;
+    text-align: center;
     position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url('Cholka.png'); /* Установка изображения фоном */
-    background-size: cover; /* Масштабирование изображения для покрытия всей области */
-    background-position: center; /* Центрирование изображения */
+    z-index: 1;
+    margin-top: 0; /* Установлен верхний отступ на ноль */
+}
+
+header h1 {
+    font-family: "Great Vibes", cursive;
+    font-weight: 500;
+    font-size: 5em;
+    color: #f0dfc5;
+    text-shadow: 2px 2px 2px rgb(143, 73, 3);
+    opacity: 0;
+    animation: fadeInAnimation 4s forwards;
 }
 
 main {
-    position: relative;
-    z-index: 1;
-    width: 90%;
-    max-width: 800px;
-    text-align: center;
-    padding: 20px;
-    background: rgba(238, 238, 238, 0.8); /* Полупрозрачный фон для контента */
-    border-radius: 8px;
+    margin: 20px 0;
 }
 
 .invitation p {
@@ -44,14 +66,11 @@ main {
     animation: fadeInAnimation 6s forwards;
 }
 
-.invitation .date {
-    font-size: 2.5em;
-}
-
 .invitation .names {
     font-size: 7em;
     color: #e32424;
     margin-top: 0.5em;
+    
 }
 
 .details {
@@ -92,20 +111,11 @@ footer a:hover {
     text-decoration: underline;
 }
 
-/* Анимация появления текста */
-@keyframes fadeInAnimation {
-    to {
-        opacity: 1;
-    }
-}
-
-.fade-in {
-    opacity: 0;
-    animation: fadeInAnimation 2s forwards;
-}
-
 /* Media queries for responsiveness */
 @media (max-width: 768px) {
+    header h1 {
+        font-size: 3em;
+    }
     .invitation p {
         font-size: 2em;
     }
@@ -121,6 +131,9 @@ footer a:hover {
 }
 
 @media (max-width: 480px) {
+    header h1 {
+        font-size: 2.5em;
+    }
     .invitation p {
         font-size: 1.5em;
     }
@@ -134,4 +147,3 @@ footer a:hover {
         font-size: 1.2em;
     }
 }
-
